@@ -1,37 +1,4 @@
 
----
-name: "html_css_to_pdf"
-description: "Converts HTML/CSS presentations to PDF while preserving all visual design. Invoke when user wants to convert an HTML/CSS presentation to PDF without losing design elements."
----
-
-# HTML/CSS to PDF Presentation Converter
-
-This skill converts HTML/CSS presentations (with slide-based layout) to PDF format while preserving all visual design elements including colors, gradients, fonts, layout, and more.
-
-## When to Use
-
-- You have an HTML/CSS presentation you want to convert to PDF
-- You want to preserve all design elements (gradients, colors, fonts, layout)
-- The presentation uses slide-based navigation (one slide per view)
-
-## Prerequisites
-Check if the required dependencies are installed:
-```bash
-pip show playwright pypdf2
-```
-If not installed, install required dependencies:
-```bash
-pip install playwright pypdf2
-playwright install chromium
-```
-
-## Usage
-
-### Step 1: Create the Conversion Script
-
-Create a Python script (e.g., `generate_pdf.py`) in the same directory as your `index.html`:
-
-```python
 from playwright.sync_api import sync_playwright
 import os
 import tempfile
@@ -47,7 +14,6 @@ def generate_presentation_pdf():
         page.goto(f'file://{html_path}')
         page.wait_for_load_state('networkidle')
         
-        # Get total number of slides (adjust selector as needed)
         total_slides = page.evaluate("document.querySelectorAll('.slide').length")
         pdf_files = []
         
@@ -62,7 +28,6 @@ def generate_presentation_pdf():
                         }
                     });
                     
-                    // Hide UI elements (adjust selectors as needed)
                     const elementsToHide = [
                         '.nav-btn', '.next-btn', '.prev-btn', '.slide-counter',
                         '.fullscreen-btn', '.controls-hint', '.progress-bar'
@@ -105,40 +70,4 @@ def generate_presentation_pdf():
 
 if __name__ == '__main__':
     generate_presentation_pdf()
-```
 
-### Step 2: Customize for Your Presentation
-
-- **Slide Selector**: Change `.slide` to match your slide elements' class/selector
-- **UI Elements to Hide**: Adjust the `elementsToHide` list to match your presentation's controls
-- **Viewport Size**: Modify `viewport={'width': 1400, 'height': 900}` to match your slide dimensions
-- **Output PDF Name**: Change `'presentation.pdf'` to your desired filename
-
-### Step 3: Run the Script
-
-```bash
-python generate_pdf.py
-```
-
-## Key Features
-
-✅ Preserves all colors and gradients  
-✅ Maintains exact font styles and sizes  
-✅ Keeps original layout and spacing  
-✅ One slide per PDF page  
-✅ Hides UI navigation elements  
-✅ Preserves code blocks, tables, and blockquotes
-
-## Troubleshooting
-
-### Model Download Issues
-If Playwright browsers fail to download, try:
-```bash
-playwright install chromium --with-deps
-```
-
-### Font Rendering Issues
-For better font rendering, ensure your system has the required fonts installed.
-
-### Slide Dimensions
-If slides are cut off, adjust the `viewport` dimensions or PDF `format`/`margin` settings.
