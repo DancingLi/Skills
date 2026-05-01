@@ -1,0 +1,3 @@
+interface:
+  display_name: "Video Transcription"
+  short_description: "Download audio from online videos, transcribe with local faster-whisper, and correct ASR errors via LLM API. Manifest-driven batch pipeline with resume support."
