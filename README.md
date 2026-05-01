@@ -1,6 +1,26 @@
 # Skills
-- Some Skills I made for Claude Code, Cursor, Trae, and etc.
-- Currently, there are three skills:
-    1. Handoff Context Skill: "Generate a context handover Markdown file for the AI dialogue, containing the current objectives, research conclusions, and execution plan. Call it when you need to switch to a new Agent session."
-    2. Presentation Creator Skill: "Automatically generate HTML+CSS presentation slides based on the Markdown content provided by users. Both simple and complex interaction modes are supported."
-    3. HTML to PDF skill: "Converts HTML/CSS presentations to PDF while preserving all visual design. Invoke when user wants to convert an HTML/CSS presentation to PDF without losing design elements."
+
+A collection of AI agent skills (OpenCode, Claude Code, Cursor, Trae, etc.) covering document generation, context management, and media processing.
+
+## Skills
+
+| Skill | Description |
+|---|---|
+| **cv-writing-expert** | AI-powered, ATS-optimized CV generation. Dual onboarding: build from scratch or refine an existing CV with STAR-method bullet crafting. |
+| **Handoff_Context** | Generate a context handoff Markdown file (objectives, research, execution plan) for seamless AI session switching. |
+| **html_css_to_pdf** | Convert HTML/CSS presentations to PDF while preserving all visual design — no layout loss. |
+| **Presentation_Creator** | Auto-generate HTML+CSS presentation slides from Markdown content. Supports simple and interactive modes. |
+| **video-transcription** | Batch pipeline: download video audio via yt-dlp, transcribe with local faster-whisper, correct ASR errors via LLM API. Manifest-driven with resume support. |
+
+## Usage
+
+Copy any skill folder to your AI tool's skills directory:
+
+```bash
+cp -r <skill-name> ~/.codex/skills/       # OpenCode
+cp -r <skill-name> ~/.claude/skills/      # Claude Code
+```
+
+## License
+
+MIT — see [LICENSE](LICENSE).
