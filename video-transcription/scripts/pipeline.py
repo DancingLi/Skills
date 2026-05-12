@@ -4,6 +4,8 @@ Usage: python pipeline.py <phase> --project-dir <dir> [options]
 
 Phases: init, enrich, download, transcribe, correct, summary, status, all
 """
+import ssl as _ssl
+_ssl._create_default_https_context = _ssl._create_unverified_context
 import json
 import subprocess
 import sys

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manuscript Guided SRT"
+  short_description: "Align audio timestamps to a speech manuscript."
+  default_prompt: "Generate a production-ready SRT from an audio file and its manuscript."
